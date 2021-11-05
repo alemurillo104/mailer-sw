@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,3 +21,9 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+
+Route::get('/usuario', [App\Http\Controllers\UserController::class, 'index'])->name('admin.user.index');
+Route::get('/user/edit/{id}', [App\Http\Controllers\UserController::class, 'editar'])->name('admin.user.editar');
+Route::put('/user/edit/{id}', [App\Http\Controllers\UserController::class, 'edit'])->name('admin.user.edit');

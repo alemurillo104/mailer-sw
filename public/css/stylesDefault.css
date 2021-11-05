@@ -1,0 +1,31 @@
+header, div, h1, h2, h4, nav, col {
+    /* font-family:'Courier New', Courier, monospace; */
+    font-family: Arial, Helvetica, sans-serif;
+}
+/* nav{
+    background-color: green;
+} */
+
+/* body{
+    background-image: url("/img/fondonino.png");
+    background-color: #cccccc;
+} */
+
+/* #app.div.nav{
+    background-color: green;
+} */
+body{
+    background-color: #E3E3E3;
+}
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    /* background-color: #D9D9D9; */
+    background-color: #A0A0A3;
+    /* background-color: #9A9C9F; */
+    /* color: white; */
+    height: 30px;
+    text-align: center;
+}

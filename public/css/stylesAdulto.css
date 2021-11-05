@@ -1,0 +1,36 @@
+header, div, h1, h2, h4, nav, col {
+    /* font-family:'Courier New', Courier, monospace; */
+    /* font-family: Arial, Helvetica, sans-serif; */
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    /* background-color: green; */
+    /* background: blue !important; */
+}
+
+ul.slide-out{
+    font-family:vendana; 
+    background-color:red !important
+    /* background-color: #E0E0E0 */
+}
+
+div.omg{
+    font-family:vendana; 
+    background-color:red
+}
+body{
+    /* background-color: red; */
+    background-image: url("/img/fondoAdulto.jpg");
+    background-color: #cccccc;
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #D9D9D9;
+    /* background-color: #7EA9EA; */
+    /* background-color: #9A9C9F; */
+    /* color: white; */
+    height: 30px;
+    text-align: center;
+    }

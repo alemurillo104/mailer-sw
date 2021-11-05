@@ -1,0 +1,59 @@
+/* body{
+    background-color: red;
+} */
+/*Creates table with scrollable tbody*/
+tbody {
+    display:block;
+    height:190px;
+    overflow:auto;
+  }
+  thead, tbody tr {
+    text-align: center;
+    display:table;
+    width:100%;
+    table-layout:fixed;
+  }
+  thead {
+    width: calc( 100% - 1em )
+    /* width: 50%, */
+    
+  }
+  table {
+    width:50%;
+  }
+
+  /* Layout: */
+
+.col-main {
+  flex: 1;  
+}  
+
+.col-complementary {
+  flex: 1;  
+}
+
+/* Responsive: */
+
+@media only screen and (min-width: 640px) {
+  .layout {
+    display: flex;
+  }
+}
+
+/* etc */
+
+body {
+  margin: 1.5em;
+}
+
+.container {
+  max-width: 60em;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.col {
+  padding: 1em;
+  margin: 0 2px 2px 0;
+  /* background: #b3e888; */
+}
