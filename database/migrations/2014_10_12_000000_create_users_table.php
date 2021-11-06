@@ -26,7 +26,7 @@ class CreateUsersTable extends Migration
             $table->rememberToken();
 
             
-            $table->unsignedBigInteger('id_role')->nullable();
+            $table->unsignedBigInteger('id_role')->nullable()->default(2);
             $table->foreign('id_role')->references('id')
             ->on('roles')->onDelete('cascade');
             

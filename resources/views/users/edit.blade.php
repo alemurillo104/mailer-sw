@@ -20,43 +20,57 @@
             
             <div class="form-group">
                 <label for="email">Email: <sup>*</sup></label>
-                <input type="text" name="email"  value="{{$user->email}}">
+                <input type="text" name="email"  value="{{$user->email}}" disabled>
             </div>
 
             <div class="form-group">
                 <label for="password">Contraseña: <sup>*</sup></label>
-                <input type="password" name="password" value="{{ $user->password }}">
+                <input type="password" name="password" value="{{ $user->password }}" minlength="8">
             </div>
 
             <div class="form-group">
-                <label for="telefono">Telefono: <sup>*</sup></label>
-                <input type="text" name="telefono" value="{{$user->cellphone}}">
+                <label for="cellphone">Telefono: <sup>*</sup></label>
+                <input type="text" name="cellphone" value="{{$user->cellphone}}" maxlength="10" minlength="10">
             </div>
             
             <div class="form-group">
-                <label for="id_card">id_card: <sup>*</sup></label>
-                <input type="text" name="id_card" value="{{$user->id_card}}">
+                <label for="id_card">Cedula: <sup>*</sup></label>
+                <input type="text" name="id_card" value="{{$user->id_card}}" disabled>
             </div>
+
+            @php 
+                $birthDate = strval($user->date_born);
+
+                $currentDate = date("d-m-Y");
+
+                $age = date_diff(date_create($birthDate), date_create($currentDate));
+                // dd($age->y)
+                
+            @endphp
 
             <div class="form-group">
-                <label for="date_born">date_born: <sup>*</sup></label>
-                <input type="text" name="date_born" value="{{$user->date_born}}">
+                <label for="date_born">Fecha de Nacimiento: <sup>*</sup></label>
+                <input type="date" name="date_born" value="{{ $user->date_born }}">
             </div>
+            {{-- <div class="form-group">
+                <label for="date_born">Edad: <sup>*</sup></label>
+                <input type="text" name="date_born" value="{{ $age->y }}">
+            </div> --}}
 
             <div class="form-group">
-                <label for="city_cod">city_cod: <sup>*</sup></label>
-                <input type="text" name="city_cod" value="{{$user->city_cod }}">
+                <label for="city_cod">Codigo de ciudad: <sup>*</sup></label>
+                <input type="number" minlength="1000" name="city_cod" value="{{strval($user->city_cod) }}">
             </div>
 
-            @can('admin.admin.rol')
+            @if(Auth::user()->id_role == 1)
                 
                 <p>Cambiar rol:</p>
                 <p>
                     <label>
-                        <input name="tipo" type="radio" <?php if($user->id_role == 2) { ?>
-                            checked value="C" 
+                        <input name="id_role" type="radio" <?php if($user->id_role == 2) { ?>
+                            checked value="{{ 2 }}" 
                         <?php }else{?>
-                            value="C" 
+                            value="{{ 2 }}" 
                         <?php }?>
                         />
                         <span>Cliente</span>
@@ -65,16 +79,16 @@
                 
                 <p>
                     <label>
-                        <input name="tipo" type="radio" value="A"  <?php if($user->id_role == 1) { ?>
-                            checked value="A" 
+                        <input name="id_role" type="radio" <?php if($user->id_role == 1) { ?>
+                            checked value="{{ 1 }}" 
                         <?php }else{?>
-                            value="A" 
+                            value="{{ 1 }}" 
                         <?php }?>
                         />
                         <span>Admin</span>
                     </label>
                 </p>
-            @endcan
+            @endif
 
             <div class="row">
                 <div class="col s12 right-align">

@@ -20,46 +20,6 @@
     <link rel="stylesheet" href="/css/alerts.css"> 
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     
-    
-    <?php
-            
-        switch (Auth::user()->stylesUrl) {
-            case 'stylesAdulto': ?>
-                <link rel="stylesheet" href="/css/stylesAdulto.css"> 
-                <?php  break;
-            case 'stylesJoven': ?>
-                <link rel="stylesheet" href="/css/stylesJoven.css">
-                <?php break; 
-            
-            case 'stylesNino': ?>
-                <link rel="stylesheet" href="/css/stylesNino.css">
-                <?php  break;
-            
-            case 'stylesAdultoOsc': ?>
-                <link rel="stylesheet" href="/css/stylesAdultoOsc.css"> 
-                <?php  break;
-            case 'stylesJovenOsc': ?>
-                <link rel="stylesheet" href="/css/stylesJovenOsc.css">
-                <?php break; 
-            
-            case 'stylesNinoOsc': ?>
-                <link rel="stylesheet" href="/css/stylesNinoOsc.css">
-                <?php  break;
-
-            case 'stylesDefault': ?>
-                <link rel="stylesheet" href="/css/stylesDefault.css">
-                <?php break; 
-            
-            case 'stylesDefaultOsc': ?>
-                <link rel="stylesheet" href="/css/stylesDefaultOsc.css">
-                <?php break; 
-            
-            default: ?>
-                <link rel="stylesheet" href="/css/stylesDefault.css"> 
-            <?php break;
-        }
-    ?>
-
     <link type="text/css" rel="stylesheet" href="{{'/css/materialize.min.css'}}"  media="screen,projection"/>
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/fontawesome.min.css" class="">
@@ -84,14 +44,7 @@
 <body>
     <div id="app">
         <div class="navbar-fixed">
-            <nav id="navitem" class="<?php
-                // session_start();  
-                if(Auth::user()->color != null){
-                    echo Auth::user()->color;
-                }else{
-                    echo "#000000 black";
-                }
-            ?>">
+            <nav id="navitem" class="#000000 black">
                 <div class="container">
                     <div class="nav-wrapper">
                         <a href="#" class="brand-logo left" id="tituloTaller1" style="font-size:1.5vw">Mailer SA</a>
@@ -101,15 +54,7 @@
         </div>
         {{-- Side nav --}}
         
-        <ul id="slide-out" class="sidenav sidenav-fixed" style="
-        <?php
-            // session_start();  
-            if(Auth::user()->valorStyle){
-                echo Auth::user()->valorStyle;
-            }else{
-                echo "";
-            }
-        ?>">
+        <ul id="slide-out" class="sidenav sidenav-fixed" >
         {{-- <ul id="slide-out" style="font-family:courier; background-color: #E0E0E0" class="sidenav sidenav-fixed"> --}}
             <li><div class="user-view">
                 <div class="background">
@@ -128,7 +73,6 @@
             <!-- Dropdown Structure -->
             <ul id='dropdownWelcome' class='dropdown-content'>
                 <li><a href="/">Inicio</a></li>
-                <li><a href="#">Preferencias</a></li>
                 <li class="divider" tabindex="-1"></li>
                 <li>
                     <a href="{{ route('logout') }}"
@@ -163,9 +107,22 @@
             
                   {{-- Sesion iniciada --}}
                 {{-- <li><button onclick="return clicks();">Click me</button></li> --}}
+                @if(Auth::user()->id_role == 1)
+                    <li><a href="{{ route('admin.user.index') }}">Usuarios</a></li>
+                    
+                @endif
+                <li><a href="/emails">Emails</a></li>
+                <li>
+                    <a href="{{ route('logout') }}"
+                        onclick="event.preventDefault();
+                        document.getElementById('logout-form').submit();">
+                        {{ __('Cerrar Sesion') }}
+                    </a>
 
-                <li><a href="/vehiculo">Vehiculos</a></li>
-
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                    </form>
+                </li>
 
             @endguest
             
@@ -174,7 +131,7 @@
         <a href="#" data-target="slide-out" id="botonh" class="sidenav-trigger hide"><i class="material-icons">menu</i></a>
 
         <main class="py-4">
-            <div style="padding-right: 10%; padding-left: 10%">
+            <div style="padding-right: 5%; padding-left: 5%">
                 @yield('content')
             </div>
         </main>

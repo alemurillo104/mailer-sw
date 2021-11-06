@@ -56,11 +56,7 @@
                                     </li>
                                 @endif
                 
-                                @if (Route::has('register'))
-                                    <li>
-                                        <a href="{{ route('register') }}">{{ __('Registrarme') }}</a>
-                                    </li>
-                                @endif
+                              
                             </ul>
                         @else
                             <li class="nav-item dropdown">
@@ -123,11 +119,6 @@
                     </li>
                 @endif
 
-                @if (Route::has('register'))
-                    <li>
-                        <a href="{{ route('register') }}">{{ __('Registrarme') }}</a>
-                    </li>
-                @endif
             @else
                 <li><a href="/home">Dashboard</a></li>
                 <li class="divider" tabindex="-1"></li>

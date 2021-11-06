@@ -31,6 +31,12 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'password_verified',
+        'id_card',
+        'city_cod',
+        'cellphone',
+        'date_born',
+        'id_role'
     ];
 
     /**
@@ -51,4 +57,14 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public static function getUserByEmail($email)
+    {
+        $resp = DB::table('users')
+        ->where('users.email', '=' , $email)
+        ->select('users.*')
+        ->get();
+
+        return $resp; 
+    }
 }
