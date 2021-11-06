@@ -9,6 +9,7 @@ use App\Models\User;
 
 class UserController extends Controller
 {
+    
     // Listar usuarios utilizando paginacion
     public function index()
     {
@@ -17,6 +18,7 @@ class UserController extends Controller
         return view('users.index', compact('users'));
     }
 
+
     // Redireccionar a vista crear usuario
     public function create()
     {
@@ -24,6 +26,7 @@ class UserController extends Controller
         return view('users.create', compact('msj'));
     }
     
+
     public function store(Request $request)
     {
         $pass1 = $request->password;
@@ -72,6 +75,7 @@ class UserController extends Controller
         return redirect()->route('admin.user.index');
     }
 
+
     //Funcion para obtener la edad a partir de la fecha de nacimiento
     private function getAge($date)
     {
@@ -83,10 +87,12 @@ class UserController extends Controller
          return $age->y;
     }
 
+
     public function editar($id){
         $user = User::findOrFail($id);
         return view('users.edit', ['user' => $user, 'msj' => '']);
     }
+
 
     public function edit(Request $request, $id)
     {
@@ -134,12 +140,16 @@ class UserController extends Controller
         
     }
 
+
     public function eliminar($id){
+
         $user = User::findOrFail($id);
         return View('users.delete', ['user' => $user]);
     }
 
+
     public function delete(Request $request, $id){
+
         if(strtolower($request['eliminar']) == 'si'){
             $user = User::findOrFail($id);
 
