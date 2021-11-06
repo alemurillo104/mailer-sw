@@ -51,5 +51,17 @@ class UserSeeder extends Seeder
             'city_cod' => '0000',
             'id_role' => 2,
         ]);
+        User::create([
+            'id' => 4,
+            'email' => 'pperez@gmail.com',
+            'name' => 'Paty Perez',
+            'password' => bcrypt('123123123'),
+            'password_verified' => bcrypt('123123123'),
+            'cellphone' => '7138526300',
+            'id_card' => '00000000004',
+            'date_born' => '1999-01-04',
+            'city_cod' => '0000',
+            'id_role' => 2,
+        ]);
     }
 }

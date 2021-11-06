@@ -1,6 +1,11 @@
 @extends('layouts.app1')
 
 @section('content')
+@if ($msj != '')
+    <div class="alert alert-danger">
+        {{ $msj }}
+    </div>
+@endif
 
 <div class="col s6">
     <a href="{{route('admin.user.index')}}" class="btn btn-#1e88e5 blue darken-1"><i class="material-icons">arrow_back</i></a>
@@ -38,24 +43,10 @@
                 <input type="text" name="id_card" value="{{$user->id_card}}" disabled>
             </div>
 
-            @php 
-                $birthDate = strval($user->date_born);
-
-                $currentDate = date("d-m-Y");
-
-                $age = date_diff(date_create($birthDate), date_create($currentDate));
-                // dd($age->y)
-                
-            @endphp
-
             <div class="form-group">
                 <label for="date_born">Fecha de Nacimiento: <sup>*</sup></label>
                 <input type="date" name="date_born" value="{{ $user->date_born }}">
             </div>
-            {{-- <div class="form-group">
-                <label for="date_born">Edad: <sup>*</sup></label>
-                <input type="text" name="date_born" value="{{ $age->y }}">
-            </div> --}}
 
             <div class="form-group">
                 <label for="city_cod">Codigo de ciudad: <sup>*</sup></label>
@@ -95,9 +86,7 @@
                     <input type="submit" class="btn btn-success #01579b light-blue darken-4" value="Actualizar">
                     <a href="{{route('admin.user.index')}}" class="btn negative-primary-color" type="submit">cancelar</a>
                 </div>
-
             </div>
-
 
         </form>
     </div>

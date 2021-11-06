@@ -4,6 +4,7 @@
 
 @if(Auth::user()->id_role == 2)
 
+    {{-- Cuando se actualiza el rol del usuario administrador a cliente, pierde privilegios de acceso --}}
     <div class="card">
         <div class="card-header"> Ups! Al parecer ya no eres administrador! </div>
         <div class="card-body">
@@ -12,8 +13,6 @@
     </div>
 
 @else
-
-
 
     @if (session('msj'))
         <div class="alert alert-success">
@@ -36,9 +35,6 @@
                 @endif
             </div>
 
-            
-        
-
             <table class="responsive-table">
                 <thead>
                     <tr>
@@ -55,13 +51,11 @@
                 </thead>
                 <tbody>
                     @foreach($users as $key => $user)
+                    {{-- Obtener la edad por cada usuario mientras el array esta iterando --}}
                     @php 
                         $birthDate = strval($user->date_born);
-            
                         $currentDate = date("d-m-Y");
-            
                         $age = date_diff(date_create($birthDate), date_create($currentDate));
-                        // dd($age->y)
                         
                     @endphp
                     <tr>
@@ -84,20 +78,11 @@
                 </tbody>
             </table>
             <br>
+            
             <div class="row" style="justify-content: center;">
                 {{ $users->links('vendor.pagination.materialize', ['elements' => $users]) }}
             </div>
-            
-            {{-- <span>
-                {{ $users->links() }}
-            </span> --}}
-
-            {{-- <style>
-                .w-5{
-                    display: none
-                }
-            </style> --}}
-
+          
         </div>
     </div>
 @endif

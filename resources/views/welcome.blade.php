@@ -2,8 +2,6 @@
 
 @section('content')
 
-
-
 <div class="container" >
     <div class="col s12">
         <div class="slider black">
@@ -23,7 +21,7 @@
                 <li>
                     <img src="/img/p2.jpg">
                     <div class="caption left-align">
-                        <h3>¿Necesitas un servicio automotriz?</h3>
+                        <h3>¿Necesitas un servicio?</h3>
                         <h5 class="light grey-text text-lighten-3">Consúltanos!</h5>
                     </div>
                 </li>
@@ -79,10 +77,7 @@
                             Registrate!
                         </a>
                     <?php }else{?>
-                        <a href="/materia/listarxMateria" class="waves-effect waves-light btn-large #0d47a1 blue darken-4">
-                            <i class="material-icons left">cloud</i>
-                            Ver mis materias
-                        </a>
+                        
                     <?php }?>
                 </div>
                 
@@ -112,7 +107,7 @@
             </div>
             <div class="footer-copyright">
                 <div class="container">
-                © 2021 Copyright - Visitas a la página: 
+                © 2021 Copyright 
                 </div>
             </div>
         </footer>

@@ -30,11 +30,11 @@
             </div>
             <div class="form-group">
                 <label for="password">Contraseña: <sup>*</sup></label>
-                <input type="password" name="password" id="pass1" onchange="return checkVal()" pattern="(^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$)" required="" oninvalid="setCustomValidity('Debe colocar un contraseña de 8 o mas caracteres,  debe contener al menos un número, una letra mayúscula, un carácter especial')" oninput="setCustomValidity('')">
+                <input type="password" name="password" id="pass1" pattern="(^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$)" required="" oninvalid="setCustomValidity('Debe colocar un contraseña de 8 o mas caracteres,  debe contener al menos un número, una letra mayúscula, un carácter especial')" oninput="setCustomValidity('')">
             </div>
             <div class="form-group">
                 <label for="password_verified">Confirmar Contraseña: <sup>*</sup></label>
-                <input type="password" name="password_verified" id="pass2" onchange="return checkVal()"  pattern="(^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$)" required="" oninvalid="setCustomValidity('Debe colocar un contraseña de 8 o mas caracteres!')" oninput="setCustomValidity('')">
+                <input type="password" name="password_verified" id="pass2"  pattern="(^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$)" required="" oninvalid="setCustomValidity('Debe colocar un contraseña de 8 o mas caracteres!')" oninput="setCustomValidity('')">
             </div>
             <div class="form-group">
                 <label for="cellphone">Telefono: <sup>*</sup></label>
@@ -65,7 +65,7 @@
             </p>
 
             {{-- <a href="#"  onclick="return checkVal(event)"> submit </a> --}}
-            <button class="btn waves-effect waves-light  #01579b light-blue darken-4" type="submit" onclick="return checkVal()" name="action">Guardar
+            <button class="btn waves-effect waves-light  #01579b light-blue darken-4" type="submit" name="action">Guardar
                 <i class="material-icons right">send</i>
             </button>
         </form>
@@ -74,30 +74,3 @@
 </div>
 
 @endsection
-
-@push('script2')
-    <script>
-
-        function checkVal() {
-            // e.preventDefault();
-            
-            var p1 = document.getElementById('pass1');
-            var p2 = document.getElementById('pass2');
-
-            if (p1.value !== p2.value) {
-                console.log('no son iguales');
-                alert('Las contraseñas no son iguales! Verificar')
-            }else{
-
-                console.log('SI son iguales');
-                //Ale014%%%%
-
-
-            }
-
-            // console.log(p1.value);
-        }
-
-
-    </script>
-@endpush

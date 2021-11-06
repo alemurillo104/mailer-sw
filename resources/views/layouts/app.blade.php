@@ -9,9 +9,6 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-    <!-- Scripts -->
-    {{-- <script src="{{ asset('js/app.js') }}" defer></script> --}}
-
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
@@ -30,8 +27,6 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    
-  
 
 </head>
 <body>
@@ -47,7 +42,6 @@
                         @guest
                             <a class='dropdown-trigger' href='#' data-target='dropdown4545'> <i class="material-icons right">arrow_drop_down</i>Opciones</a>
                             <ul id='dropdown4545' class='dropdown-content'>
-                                {{-- <li><a href="/">Inicio</a></li> --}}
                                 <li><a href="<?php echo config('url')?>/">Inicio</a></li>
                                 
                                 @if (Route::has('login'))
@@ -85,7 +79,6 @@
                 </div>
             </div>
         </nav> 
-        
 
       
         {{-- Side nav --}}
@@ -109,10 +102,7 @@
             <li><div class="divider"></div></li>
             <li><a class="subheader">OPCIONES</a></li>
             <li><div class="divider"></div></li>
-            {{-- <li><a class="waves-effect" href="#!">Iniciar Sesion</a></li> --}}
             @guest
-            {{-- <h1>omg</h1> --}}
-            
                 @if (Route::has('login'))
                     <li>
                         <a href="{{ route('login') }}">{{ __('Login') }}</a>
@@ -140,8 +130,6 @@
         
         <a href="#" data-target="slide-out" id="botoncito" class="sidenav-trigger hide"><i class="material-icons">menu</i></a>
          
-        {{-- dropdown  --}}
-
           <!-- Dropdown Structure -->
         <ul id='dropdown1' class='dropdown-content'>
             <li><a href="/">Log out</a></li>           
@@ -191,5 +179,3 @@
 
 </body>
 </html>
-{{-- </body>
-</html> --}}

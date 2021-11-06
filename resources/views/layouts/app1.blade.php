@@ -9,9 +9,6 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-    <!-- Scripts -->
-    {{-- <script src="{{ asset('js/app.js') }}" defer></script> --}}
-    
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
@@ -64,7 +61,7 @@
                 <a href="#name"><span class="white-text name">{{ Auth::user()->name }}</span></a>
                 <a href="#email"><span class="white-text email">{{ Auth::user()->email }}</span></a>
             </div></li>
-            <li><a href="/home">Home</a></li>
+            <li><a href="/home">Mi perfil</a></li>
             <li><div class="divider"></div></li>
             {{-- <li><a class="subheader">OPCIONES</a></li> --}}
             <!-- Dropdown Trigger -->
